@@ -17,10 +17,21 @@
 
 ---
 
+# What about Resiliency?
+
+---
+
+Resiliency
+
+* Service-mesh, THE buzzword for 2018
+* Istio
+
+---
+
+
 # What about Authentication?
 
 * Let's use a sidecar
-* 
 
 ---
 
@@ -32,11 +43,11 @@ Authorization
 
 ---
 
-* We want to allow only uses with email permission the capability to send email
+* Let's make the side car better
 
 ---
 
-# What about Monitoring?
+# Monitoring revisited
 
 ---
 
@@ -47,18 +58,6 @@ Monitoring
 
 ---
 
-# What about Resiliency?
-
----
-
-Resiliency
-
-<iframe src="http://localhost:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/overview?namespace=default" style="width:600px;height:600px" />
-
-
-* Istio
-
----
 
 # And there's a bonus...
 
@@ -74,7 +73,7 @@ What if we want to batch send messages?
 
 ---
 
-# Monitoring revisited
+# Monitoring revisited again
 
 ---
 

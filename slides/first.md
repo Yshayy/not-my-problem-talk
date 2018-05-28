@@ -31,13 +31,21 @@
 
 ---
 
+# What about Resiliency?
+
+---
+
+## Resiliency
+
+* We want to retry failed requests against our other microservices (users, email)
+
+---
+
 # What about Authentication?
 
 ---
 
 Authentication
-
----
 
 * We want to allow sending email from allowed users
 * We'll use JWT token for authentication and validation them against OIDC provider
@@ -66,13 +74,3 @@ Monitoring
 * We're going to use a statsd client with external provider
 
 ---
-
-# What about Resiliency?
-
----
-
-Resiliency
-
----
-
-* We want to retry failed requests against our other microservices (users, email)
