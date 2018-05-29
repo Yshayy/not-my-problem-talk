@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+    first:
+        image: first 
+        build: ./first-iteration
+    messages:
+        image: messages
+        build: ./support/messages
+    users:
+        image: users
+        build: ./support/users
+    

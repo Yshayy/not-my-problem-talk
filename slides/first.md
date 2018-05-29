@@ -9,11 +9,19 @@
 * Format message using a template
 * Send an email
 
+
+---
+
+![architecture](./app.png)
+
+
 ---
 
 ## Let's write some code
 
 ---
+
+
 
 # Coding...
 
@@ -56,11 +64,9 @@ Authentication
 
 ---
 
-Authorization
+## Authorization
 
----
-
-* We want to allow only uses with email permission the capability to send email
+* We want to allow only users with admin permission the capability to send email
 
 ---
 
@@ -68,9 +74,12 @@ Authorization
 
 ---
 
-Monitoring
+## Monitoring
 
 * We want some metrics to check performance and scale
 * We're going to use a statsd client with external provider
 
 ---
+
+### Demo
+

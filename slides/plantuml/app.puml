@@ -1,0 +1,9 @@
+@startuml
+node users
+node notifications
+node messages
+actor admin
+notifications --> users
+notifications --> messages
+admin -> notifications
+@enduml

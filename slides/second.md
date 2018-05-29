@@ -51,7 +51,7 @@ Authorization
 
 ---
 
-Monitoring
+## Monitoring
 
 * We want some metrics to check performance and scale
 * We're going to use a statsd client with external provider
@@ -63,7 +63,7 @@ Monitoring
 
 ---
 
-What if we want to batch send messages?
+# What if we want to batch send messages?
 
 ---
 

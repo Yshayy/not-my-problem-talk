@@ -1,0 +1,1 @@
+echo "$(minikube ip) $(kubectl --context=minikube --all-namespaces=true get ingress | grep -v NAMESPACE | awk '{ print $3 }' | tr '\r\n,' ' ')" | sudo tee -a /etc/hosts
