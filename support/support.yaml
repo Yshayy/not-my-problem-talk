@@ -90,7 +90,6 @@ spec:
         - backend:
             serviceName: users
             servicePort: 80
-  rules:
   - host: messages.demo-v1
     http:
       paths:

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: istio-system
+  name: metrics-ingress
+  annotations:
+    kubernetes.io/ingress.class: istio
+spec:
+  rules:
+    - host: grafana.infra
+      http:
+        paths:
+          - backend:
+              serviceName: grafana
+              servicePort: 3000
+    - host: prom.infra
+      http:
+        paths:
+          - backend:
+              serviceName: prometheus
+              servicePort: 9090
