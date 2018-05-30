@@ -17,11 +17,17 @@
 
 ---
 
+## Logging - extra benefits
+
+* Different policies - low/high retention
+
+---
+
 # What about Resiliency?
 
 ---
 
-Resiliency
+## Resiliency
 
 * Service-mesh, THE buzzword for 2018
 * Istio
@@ -31,7 +37,12 @@ Resiliency
 
 # What about Authentication?
 
+---
+
+## Authentication
+
 * Let's use a sidecar
+* Airbag
 
 ---
 
@@ -39,15 +50,13 @@ Resiliency
 
 ---
 
-Authorization
+## Authorization
+
+* Airbag?
 
 ---
 
-* Let's make the side car better
-
----
-
-# Monitoring revisited
+# Monitoring
 
 ---
 
@@ -59,11 +68,11 @@ Authorization
 ---
 
 
-# And there's a bonus...
+## Let's make things more interesting...
 
 ---
 
-# What if we want to batch send messages?
+## What if we want to batch send messages?
 
 ---
 

@@ -21,5 +21,9 @@
 
 ############## need to set hostPort to 80 on istio-ingress pod! 
 
-helm install stable/prometheus
-helm install stable/grafana
+
+kubectl apply -f install/kubernetes/addons/prometheus.yaml
+
+
+#helm install stable/prometheus
+#helm install stable/grafana

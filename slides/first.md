@@ -5,9 +5,9 @@
 ## Notification micro-service
 
 * Get user identifier and message type
-* Fetch email and user details from users micro-service
+* Fetch user details from users micro-service
 * Format message using a template
-* Send an email
+* Send a message
 
 
 ---
