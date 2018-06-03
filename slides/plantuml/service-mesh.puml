@@ -1,0 +1,9 @@
+@startuml
+skinparam monochrome reverse
+
+node users
+node notifications
+node envoy
+node envoy
+notifications <--> envoy <--> envoy <--> users
+@enduml

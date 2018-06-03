@@ -2,13 +2,13 @@ const winston = require("winston")
 const logzioWinston = require('winston-logzio');
 const morgan = require('morgan');
 
-const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.json(),
-    transports: [
-      new winston.transports.Console()
-    ]
-  });
+const logger = new winston.Logger({
+  transports: [
+    new winston.transports.Console({
+      json: true
+    })
+  ]
+});
 
 logger.add(logzioWinston, {
     token: 'TClHaWhsIZhLAcVRbroArdedwgQSNyjy',

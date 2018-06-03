@@ -1,5 +1,79 @@
 <html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.0/rxjs.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jwt-decode@2.2.0/build/jwt-decode.min.js"></script>
+        <script src="https://unpkg.com/sweetalert2@7.21.1/dist/sweetalert2.all.js"></script>
+    </head>
+    <body>
+    
+    <div>
+        <button class="login">Login</button>
+        <button class="send">Send</button>
+
+
+        <div>Messages For:<select class="MessageSelect">
+            <option>Alice</option>
+            <option>Bob</option>
+        </select> 
+        </div>
+        <div class="Messages">
+
+        </div>
+
+        <div class="JWT" style="display:flex; flex-direction: row; width: 80%" >
+            <div style="flex:1">
+            <div>Token</div>
+            <textarea class="token" style="width:80%; height: 100px;"></textarea>
+            </div>
+            <div style="flex:1">
+            <div>Decoded</div>
+            <textarea class="decoded" style="width:80%; height: 100px;"></textarea>
+            </div>
+        </div>
+    </div>
+
     <script>
-        console.log(document.location.hash)
+
+        document.querySelector(".send").addEventListener("click", ()=>{
+            fetch("http://notifications.demo-v1/api/notifications", {
+                method: "post",
+                headers: {
+                   "content-type": "application/json",
+                   "Authorization": document.querySelector(".JWT .token").value &&  "Bearer " + document.querySelector(".JWT .token").value
+                },
+
+                body: JSON.stringify({
+                    user: "alice",
+                    messageType: "welcome"
+                })
+            }).then(x=>{
+                if (!x.ok){
+                    swal({position: 'top-end',type: "error", title:"error sending message:" + x.statusText});
+                    console.error(x.statusText)
+                }
+                else{
+                    swal({position: 'top-end',type: "success", title:"message has been sent"})
+                }
+            }, ex=>{
+                alert("error sending message");
+                console.error(ex)
+            });
+        });
+
+        document.querySelector(".login").addEventListener("click", ()=>{
+            document.location = "http://oidc.demo-v1/connect/authorize?client_id=mock&redirect_uri=http://client.demo-v1&nonce=" + Math.random() +  "&scope=openid&response_type=id_token%20token"
+        });
+
+        if (document.location.hash.includes("access_token")){
+            const token =document.location.hash.match("access_token=([^&]*)")[1];
+            document.querySelector(".JWT .token").value = token;
+            document.querySelector(".JWT .decoded").value = JSON.stringify(jwt_decode(token));
+        }
+        
+        fetch("http://messages.demo-v1/api/users/alice/messages").then(data=> data.json()).then(data =>{
+            document.querySelector(".Messages").innerHTML = JSON.stringify(data);
+        })
     </script>
+    </body>
 </html>

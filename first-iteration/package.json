@@ -11,9 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
+    "express-accesstoken-validation": "^0.4.0",
+    "express-jwt": "^5.3.1",
     "express-statsd": "^0.3.0",
     "got": "^8.3.1",
+    "jwks-rsa": "^1.2.1",
     "lynx": "^0.2.0",
     "morgan": "^1.9.0",
     "polly-js": "^1.4.3",

@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
-app.use(express.static('public'))
+const cors = require('cors')
+const bodyParser = require('body-parser')
+
+app.use(cors());
+app.use(bodyParser.json());
 
 const messages = {
     alice: [{text:"hello alice"}],
@@ -12,8 +16,8 @@ app.get('/api/users/:userId/messages', (req, res) => {
 });
 
 app.post('/api/users/:userId/messages', (req, res) => {
-    (messages[req.param("userId")] || []).push(req.body)
-    return res.sendStatus(200);
+    (messages[req.param("userId")] || []).push(req.body.message)
+    return res.json({});
 });
 
 app.listen(3000)

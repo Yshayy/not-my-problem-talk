@@ -1,5 +1,6 @@
 # Let's start
 
+
 ---
 
 ## Notification micro-service
@@ -13,7 +14,7 @@
 
 ---
 
-![architecture](./app.svg)
+<img src="./app.png" style="width:100%" />
 
 
 ---

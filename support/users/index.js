@@ -3,14 +3,14 @@ const app = express()
 
 const users = {
     alice: {
-
+        name: "Alice A"
     },
     bob: {
 
     }
 }
 
-app.get('/users/:userId', (req, res) => {
+app.get('/api/users/:userId', (req, res) => {
     return res.json(users[req.param("userId")])
 });
 

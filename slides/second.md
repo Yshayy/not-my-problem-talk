@@ -1,5 +1,6 @@
 # Let's get rid of stuff
 
+
 ---
 
 ## Visualizing k8s
@@ -22,6 +23,8 @@
 * Run on every node (Daemonset)
 * Declarative configuration to define logs pipelines
 
+---
+
 ## Logging - extra benefits
 
 * Different policies - low/high retention
@@ -38,20 +41,30 @@
 * Istio
 * Injects envoy sidecar
 
-## Istio 
-* 
+---
+
+## Resiliency - Istio 
+
+* Graph here
 
 ---
 
 
-# Authentication Revisited
+# AuthN/Z Revisited
 
 ---
 
-## Authentication
+## AuthN/Z
 
 * Let's use a sidecar
 * Soluto/Airbag
+
+---
+
+## AuthN/Z - Airbag
+
+* Show config
+* Show picture
 
 ---
 
@@ -65,6 +78,12 @@
 ---
 
 ## What if we want to batch send messages?
+
+---
+
+## Yet Another sidecar 
+
+* Image
 
 ---
 
