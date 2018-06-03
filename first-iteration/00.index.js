@@ -1,14 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const got = require("got");
-const oidc = require('oidc');
 const messageTypes = require('./messageTypes');
-const {logger, middleware: loggingMiddleware} = require("./logging");
-const {middleware: authMiddleware} = require("./auth");
-const {middleware: metricsMiddleware} = require("./monitoring");
 const app = express()
 app.use(bodyParser.json())
-app.use(metricsMiddleware);
 
 async function fetchUserDetails(userId){
     const res =  await got(`http://users/api/users/${userId}`, {json:true});
@@ -23,15 +18,10 @@ function formatMessage(messageType, context){
     return messageTypes[messageType](context);
 }
 
-app.post('/api/notifications', metricsMiddleware, oidcMiddleware.auth(), async (req, res) => {
+app.post('/api/notifications', async (req, res) => {
     const {user, messageType} = req.body;
-    try{
-        const {name} = await fetchUserDetails(user);
-        const message = formatMessage(messageType, {name});    
-    } catch (e){
-        logger.error({message:"failed to send notification", error: e });
-        res.sendStatus(500);
-    }
+    const {name} = await fetchUserDetails(user);
+    const message = formatMessage(messageType, {name});
     return res.sendStatus(200);
 });
 

@@ -4,8 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-statsd": "^0.3.0",
+    "got": "^8.3.1",
+    "lynx": "^0.2.0",
+    "morgan": "^1.9.0",
+    "polly-js": "^1.4.3",
+    "winston": "^2.4.2",
+    "winston-logzio": "^1.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
 }

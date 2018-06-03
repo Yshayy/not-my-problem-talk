@@ -1,6 +1,13 @@
 #
-# minikube start     --extra-config=controller-manager.cluster-signing-cert-file="/var/lib/localkube/certs/ca.crt"     --extra-config=controller-manager.cluster-signing-key-file="/var/lib/localkube/certs/ca.key"     --extra-config=apiserver.admission-control="NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota"     --kubernetes-version=v1.10.0 --vm-driver=kvm2 --memory=8192
-# curl -L https://git.io/getLatestIstio | sh -
+#minikube start     --extra-config=controller-manager.cluster-signing-cert-file="/var/lib/localkube/certs/ca.crt"     --extra-config=controller-manager.cluster-signing-key-file="/var/lib/localkube/certs/ca.key"     --extra-config=apiserver.admission-control="NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota"     --kubernetes-version=v1.10.0 --vm-driver=kvm2 --memory=8192
+
+minikube start \
+    --extra-config=controller-manager.cluster-signing-cert-file="/var/lib/localkube/certs/ca.crt" \
+    --extra-config=controller-manager.cluster-signing-key-file="/var/lib/localkube/certs/ca.key" \
+    --extra-config=apiserver.admission-control="NamespaceLifecycle,LimitRanger,ServiceAccount,PersistentVolumeLabel,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota" \
+    --kubernetes-version=v1.10.0 \
+    --memory 8192
+curl -L https://git.io/getLatestIstio | sh -
 # 
 
 
@@ -25,5 +32,4 @@
 kubectl apply -f install/kubernetes/addons/prometheus.yaml
 
 
-#helm install stable/prometheus
 #helm install stable/grafana

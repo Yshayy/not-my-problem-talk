@@ -6,7 +6,12 @@ build:
     workspace: ./support/users
   - imageName: messages
     workspace: ./support/messages
+  - imageName: client
+    workspace: ./support/client
+  - imageName: notifications
+    workspace: ./first-iteration
 deploy:
   kubectl:
     manifests:
     - ./support/support.yaml
+    - ./first-iteration/deployment/notifications.yaml

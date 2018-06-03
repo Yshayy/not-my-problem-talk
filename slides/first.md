@@ -10,9 +10,10 @@
 * Send a message
 
 
+
 ---
 
-![architecture](./app.png)
+![architecture](./app.svg)
 
 
 ---
@@ -20,8 +21,6 @@
 ## Let's write some code
 
 ---
-
-
 
 # Coding...
 
@@ -45,28 +44,20 @@
 
 ## Resiliency
 
-* We want to retry failed requests against our other microservices (users, email)
+* The network can failed
+* We want to retry failed requests
+* Let's add Polly
 
 ---
 
-# What about Authentication?
+# What about AuthN/Z?
 
 ---
 
-Authentication
+## AuthN/Z
 
-* We want to allow sending email from allowed users
-* We'll use JWT token for authentication and validation them against OIDC provider
-
----
-
-# What about Authorization?
-
----
-
-## Authorization
-
-* We want to allow only users with admin permission the capability to send email
+* We'll use JWT token
+* Add picture
 
 ---
 
@@ -76,8 +67,8 @@ Authentication
 
 ## Monitoring
 
-* We want some metrics to check performance and scale
-* We're going to use a statsd client with external provider
+* Performance metrics, throughput, latency
+* Statsd client
 
 ---
 

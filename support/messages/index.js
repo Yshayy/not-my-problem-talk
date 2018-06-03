@@ -13,8 +13,7 @@ app.get('/api/users/:userId/messages', (req, res) => {
 
 app.post('/api/users/:userId/messages', (req, res) => {
     (messages[req.param("userId")] || []).push(req.body)
-    console.log("test30");
     return res.sendStatus(200);
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(3000)

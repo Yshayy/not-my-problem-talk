@@ -1,4 +1,6 @@
 @startuml
+skinparam monochrome reverse
+
 node users
 node notifications
 node messages

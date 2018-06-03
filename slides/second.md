@@ -6,16 +6,21 @@
 
 ---
 
+# Logging Revisited
 
 ---
 
 ## Logging
 
 * Use log collector
-* FluentD in a nut shell
-* FluentD as a daemon set
+* Scrape the logs from Docker
 
 ---
+
+## FluentD
+
+* Run on every node (Daemonset)
+* Declarative configuration to define logs pipelines
 
 ## Logging - extra benefits
 
@@ -23,7 +28,7 @@
 
 ---
 
-# What about Resiliency?
+# Resiliency Revisited
 
 ---
 
@@ -31,39 +36,26 @@
 
 * Service-mesh, THE buzzword for 2018
 * Istio
+* Injects envoy sidecar
+
+## Istio 
+* 
 
 ---
 
 
-# What about Authentication?
+# Authentication Revisited
 
 ---
 
 ## Authentication
 
 * Let's use a sidecar
-* Airbag
-
----
-
-# What about Authorization?
-
----
-
-## Authorization
-
-* Airbag?
+* Soluto/Airbag
 
 ---
 
 # Monitoring
-
----
-
-## Monitoring
-
-* We want some metrics to check performance and scale
-* We're going to use a statsd client with external provider
 
 ---
 
@@ -77,16 +69,7 @@
 ---
 
 ## Dequeue Daemon Sidecar 
+
+* Soluto/DQD
 * Read items from queue, activate service
 * Back-pressure support
-
----
-
-# Monitoring revisited again
-
----
-
-## Deployment
-
-* Client side - Generators like Helm
-* Server side - Mutation Webhooks, controllers, CRDs
