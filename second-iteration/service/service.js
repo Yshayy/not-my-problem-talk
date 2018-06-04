@@ -28,7 +28,7 @@ app.post('/api/notifications',  async (req, res) => {
         const message = formatMessage(messageType, {name});
         await sendMessage(user, message); 
     } catch (e){
-        console.error({message:"failed to send notification", error: e.response.body });
+        console.error({message:"failed to send notification", error: e });
         res.send(500);
     }
     return res.send(200);

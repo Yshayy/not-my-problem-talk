@@ -45,7 +45,7 @@
 
 ## Resiliency - Istio 
 
-* Graph here
+<img src="./service-mesh.png" style="width:100%" />
 
 ---
 

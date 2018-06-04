@@ -7,8 +7,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const messages = {
-    alice: [{text:"hello alice"}],
-    bob: [{text:"hello bob"}]
+    alice: [],
+    bob: []
 }
 
 app.get('/api/users/:userId/messages', (req, res) => {

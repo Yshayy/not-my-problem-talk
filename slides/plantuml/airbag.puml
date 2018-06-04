@@ -1,16 +1,16 @@
 @startuml
 skinparam monochrome reverse
 left to right direction
+actor user
 
 frame notificationsPod {
     node notifications
-    component "proxy (Envoy)" as envoyA
+    component "airbag (Envoy)" as envoyA
 }
 
 node users
 node messages
 
-notifications <--> envoyA 
-envoyA <--> users 
+user <--> airbag
 envoyA <--> messages 
 @enduml

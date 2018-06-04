@@ -2,9 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const got = require("got");
-const messageTypes = require('./messageTypes');
-
+const messageTypes = require('../messageTypes');
 const app = express()
+
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -28,8 +28,8 @@ app.post('/api/notifications',  async (req, res) => {
         const message = formatMessage(messageType, {name});
         await sendMessage(user, message); 
     } catch (e){
-        console.error({message:"failed to send notification", error: e.response.body });
-        res.send(500);
+        console.error({message:"failed to send notification", error: e });
+        return res.status(500).send("failed to send notification");
     }
     return res.send(200);
 });

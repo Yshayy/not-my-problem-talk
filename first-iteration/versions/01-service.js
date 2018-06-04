@@ -2,11 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const got = require("got");
-const messageTypes = require('./messageTypes');
-
+const messageTypes = require('../messageTypes');
+const {logger, middleware: loggingMiddleware} = require("../extras/logging");
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
+app.use(loggingMiddleware);
 
 async function fetchUserDetails(userId){
     const res = await got(`http://users/api/users/${userId}`, {json:true});
@@ -28,7 +29,7 @@ app.post('/api/notifications',  async (req, res) => {
         const message = formatMessage(messageType, {name});
         await sendMessage(user, message); 
     } catch (e){
-        console.error({message:"failed to send notification", error: e.response.body });
+        logger.error("failed to send notification: " + e.response.body);
         res.send(500);
     }
     return res.send(200);

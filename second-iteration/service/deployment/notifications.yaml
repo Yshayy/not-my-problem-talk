@@ -1,0 +1,53 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: demo-v1
+  name: notifications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notifications
+  template:
+    metadata:
+      labels:
+        app: notifications
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: notifications
+        image: notifications
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: demo-v1
+  name: notifications
+spec:
+  selector:
+    app: notifications
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: demo-v1
+  name: demo-v1-ingress-notifications
+  annotations:
+    kubernetes.io/ingress.class: istio
+spec:
+  rules:
+  - host: notifications.demo-v1
+    http:
+      paths:
+        - backend:
+            serviceName: notifications
+            servicePort: 80
