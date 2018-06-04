@@ -10,8 +10,13 @@ build:
     workspace: ./support/client
   - imageName: notifications
     workspace: ./first-iteration
+  - imageName: notificationsv2
+    workspace: ./second-iteration/service
 deploy:
   kubectl:
     manifests:
     - ./support/support.yaml
+    - ./support/notifications-service.yaml
     - ./first-iteration/deployment/notifications.yaml
+    - ./second-iteration/service/deployment/notifications.yaml
+    - ./second-iteration/configs/istio/failure.yaml

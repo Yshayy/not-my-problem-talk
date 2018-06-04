@@ -2,15 +2,16 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: notifications-messages
+  namespace: demo-v1
 spec:
   hosts:
   - messages
   http:
   - match:
     - sourceLabels:
-        app: notifcations
+        app: notifications
     retries:
-      attempts: 3
+      attempts: 4
       perTryTimeout: 2s
     route:
     - destination:
@@ -21,16 +22,17 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: notifications-users
+  namespace: demo-v1
 spec:
   hosts:
   - users
   http:
   - match:
     - sourceLabels:
-        app: notifcations
+        app: notifications
     retries:
-      attempts: 3
-      perTryTimeout: 2s
+      attempts: 4
+      perTryTimeout: 1s
     route:
     - destination:
         host: users

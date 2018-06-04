@@ -1,9 +1,8 @@
 # Let's get rid of stuff
 
-
 ---
 
-## Visualizing k8s
+### Visualizing our environment
 
 ---
 
@@ -49,6 +48,20 @@
 
 ---
 
+## Resiliency - Istio 
+
+* Configurable failure handling
+* Not currently deployed at Soluto
+
+---
+
+## Service mesh extra benefits
+
+* Tracing
+* Traffic management
+* Too many to count...
+
+---
 
 # AuthN/Z Revisited
 
@@ -63,8 +76,13 @@
 
 ## AuthN/Z - Airbag
 
-* Show config
-* Show picture
+<img src="./airbag.png" style="width:100%" />
+
+--- 
+
+## AuthN/Z - Airbag
+
+* Configuration yaml example
 
 ---
 
@@ -72,8 +90,7 @@
 
 ---
 
-
-## Let's make things more interesting...
+## Let's make things more challenging...
 
 ---
 
@@ -83,7 +100,7 @@
 
 ## Yet Another sidecar 
 
-* Image
+<img src="./dqd.png" style="width:100%" />
 
 ---
 

@@ -3,51 +3,45 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: demo-v1
-  name: notifications
+  name: notificationsv2
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: notifications
+      version: "2"
   template:
     metadata:
       labels:
         app: notifications
-      annotations:
-        sidecar.istio.io/inject: "false"
+        version: "2"
     spec:
       containers:
-      - name: notifications
-        image: notifications
+      - name: notificationsv2
+        image: notificationsv2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
----
-kind: Service
-apiVersion: v1
-metadata:
-  namespace: demo-v1
-  name: notifications
-spec:
-  selector:
-    app: notifications
-  ports:
-    - name: http
-      port: 80
-      targetPort: 3000
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  namespace: demo-v1
-  name: demo-v1-ingress-notifications
-  annotations:
-    kubernetes.io/ingress.class: istio
-spec:
-  rules:
-  - host: notifications.demo-v1
-    http:
-      paths:
-        - backend:
-            serviceName: notifications
-            servicePort: 80
+      # Airbag starts here!
+      - name: "airbag"
+        image: "soluto/airbag:0.0.3"
+        ports:
+          - containerPort: 3001
+        env:
+          - name: AUTHORITY
+            value: http://oidc
+          - name: ISSUER
+            value: http://oidc.demo-v1
+          - name: AUDIENCE
+            value: http://oidc.demo-v1/resources
+          - name: BACKEND_SERVICE_PORT
+            value: "3000"
+          - name: UNAUTHENTICATED_ROUTES
+            value: isalive
+          - name: ASPNETCORE_URLS
+            value: http://+:3001
+          - name: ASPNETCORE_ENVIRONMENT
+            value: Development
+          - name: BACKEND_HOST_NAME
+            value: localhost
+        # Airbag ends here

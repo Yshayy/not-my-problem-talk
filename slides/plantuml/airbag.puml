@@ -3,14 +3,14 @@ skinparam monochrome reverse
 left to right direction
 actor user
 
+cloud "OIDC Proivder" as IP
+
 frame notificationsPod {
     node notifications
-    component "airbag (Envoy)" as envoyA
+    component "airbag" as airbag
 }
 
-node users
-node messages
-
+airbag <--> IP
 user <--> airbag
-envoyA <--> messages 
+airbag <--> notifications 
 @enduml

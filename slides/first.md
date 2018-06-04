@@ -27,6 +27,10 @@
 
 ---
 
+# Demo
+
+---
+
 # What about Logging?
 
 ---
@@ -70,8 +74,3 @@
 
 * Performance metrics, throughput, latency
 * Statsd client
-
----
-
-### Demo
-

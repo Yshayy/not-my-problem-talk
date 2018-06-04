@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome reverse
+left to right direction
+
+
+frame notificationsPod {
+    node notifications
+    component "sidecar" as dqd
+}
+
+cloud {
+    queue "notifications queue" as queue
+}
+
+
+dqd <-- queue
+dqd --> notifications 
+@enduml

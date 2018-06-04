@@ -16,7 +16,7 @@ app.use(loggingMiddleware);
 
 async function fetchUserDetails(userId){
     const res = await polly()
-    .retry(2)
+    .retry(4)
     .executeForPromise(() =>  got(`http://users/api/users/${userId}`, {json:true}));
     
     return res.body;
@@ -24,7 +24,7 @@ async function fetchUserDetails(userId){
 
 async function sendMessage(userId, message){
     await polly()
-    .retry(2)
+    .retry(4)
     .executeForPromise(()=> got.post(`http://messages/api/users/${userId}/messages`, {body: {message}, json:true}));
 }
 
@@ -39,8 +39,8 @@ app.post('/api/notifications',  authMiddleware, async (req, res) => {
         const message = formatMessage(messageType, {name});
         await sendMessage(user, message); 
     } catch (e){
-        logger.error({message:"failed to send notification", error: e });
-        return res.send(500);
+        logger.error("failed to send notification: " + e.response.body);
+        res.send(500);
     }
     return res.send(200);
 });
