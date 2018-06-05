@@ -3,6 +3,8 @@
 
 ---
 
+<!-- Add business context -->
+
 ## Notification micro-service
 
 * Get user identifier and message type
@@ -55,16 +57,20 @@
 
 ---
 
-# What about AuthN/Z?
+# What about Authentication?
 
 ---
 
-## AuthN/Z
+## Authentication
 
 * We'll use JWT token
 * Add picture
 
 ---
+
+
+<!-- Add business monitoring -->
+<!-- Add metrics -->
 
 # What about Monitoring?
 

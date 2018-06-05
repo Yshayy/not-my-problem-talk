@@ -21,6 +21,7 @@ function formatMessage(messageType, context){
     return messageTypes[messageType](context);
 }
 
+
 app.post('/api/notifications',  async (req, res) => {
     const {user, messageType} = req.body;
     try{

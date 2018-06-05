@@ -1,0 +1,17 @@
+@startuml
+skinparam monochrome reverse
+
+node api
+node worker
+cloud services
+actor users
+queue queue
+queue events
+
+api <-up-> users
+api <-up-> services
+
+worker <-up- queue
+worker <-up- events
+ 
+@enduml

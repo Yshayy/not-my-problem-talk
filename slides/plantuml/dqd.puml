@@ -1,7 +1,5 @@
 @startuml
 skinparam monochrome reverse
-left to right direction
-
 
 frame notificationsPod {
     node notifications
@@ -13,6 +11,6 @@ cloud {
 }
 
 
-dqd <-- queue
-dqd --> notifications 
+dqd <-up- queue
+dqd -right-> notifications 
 @enduml

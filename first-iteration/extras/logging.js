@@ -11,7 +11,7 @@ const logger = new winston.Logger({
 });
 
 logger.add(logzioWinston, {
-    token: 'TClHaWhsIZhLAcVRbroArdedwgQSNyjy',
+    token: '***REMOVED***',
     host: 'listener.logz.io',
     type: 'NotificationService'    
 })

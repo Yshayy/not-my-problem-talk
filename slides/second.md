@@ -90,11 +90,17 @@
 
 ---
 
-## Let's make things more challenging...
+##  And there's a bonus
 
 ---
 
 ## What if we want to batch send messages?
+
+---
+
+## Previous solution
+
+<img src="./dqd-intro.png" style="width:100%" />
 
 ---
 
@@ -109,3 +115,15 @@
 * Soluto/DQD
 * Read items from queue, activate service
 * Back-pressure support
+
+---
+
+## DQD - benefits
+
+* Scaled with service
+* Trusted
+* Agnostic 
+
+---
+
+## DQD - Demo
