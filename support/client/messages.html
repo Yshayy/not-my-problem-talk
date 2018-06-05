@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.0/rxjs.umd.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <div>
+            <span>Alice's Mailbox</span>
+            <button class="Clear">Clear</button>
+        </div>
+        <div>
+
+            <span>Messages:</span>
+
+        </div>
+        <div class="Messages">
+
+        </div>
+    </div>
+
+    <script>
+        async function refresh() {
+            const res = await fetch("http://messages.demo-v1/api/users/alice/messages");
+            const data = await res.json();
+            document.querySelector(".Messages").innerHTML = data.map(x => `<div>${x}</div>`).join("")
+        }
+
+        document.querySelector(".Clear").addEventListener("click", async () => {
+            await fetch("http://messages.demo-v1/api/users/alice/messages", {
+                method: "delete"
+            });
+            refresh();
+        })
+        refresh();
+    </script>
+</body>
+
+</html>

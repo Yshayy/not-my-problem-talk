@@ -11,13 +11,20 @@ const messages = {
     bob: []
 }
 
+app.delete('/api/users/:userId/messages', (req, res) => {
+    messages[req.param("userId")] = [];
+    return res.json({});
+});
+
 app.get('/api/users/:userId/messages', (req, res) => {
     return res.json(messages[req.param("userId")])
 });
 
 app.post('/api/users/:userId/messages', (req, res) => {
-    (messages[req.param("userId")] || []).push(req.body.message)
-    return res.json({});
+    setTimeout(()=>{
+        (messages[req.param("userId")] || []).push(req.body.message)
+        return res.json({})
+    }, 200);
 });
 
 app.listen(3000)

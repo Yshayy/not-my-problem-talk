@@ -12,7 +12,11 @@ const users = {
 
 app.get('/api/users/:userId', (req, res) => {
     if (Math.random() < 0.3){
-        return res.status(500).send("users service had a random failure")
+        setTimeout(()=>
+        {
+            res.status(500).send("users service had a random failure")
+        }, 300);
+        return;
     }
     return res.json(users[req.param("userId")])
 });
