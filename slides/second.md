@@ -2,10 +2,6 @@
 
 ---
 
-### Visualizing our environment
-
----
-
 # Logging Revisited
 
 ---
@@ -20,7 +16,7 @@
 ## FluentD
 
 * Run on every node (Daemonset)
-* Declarative configuration to define logs pipelines
+* Declarative configuration to define log pipelines
 
 ---
 
@@ -33,7 +29,7 @@
 ---
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
-<s>☑ Logging  </s>   
+<s>☑ Logging  </s>    
 ☑ Resiliency  
 ☑ Authentication  
 ☑ Monitoring
@@ -75,43 +71,43 @@
 ---
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
-<s>☑ Logging</s>   
-<s>☑ Resiliency</s>   
+<s>☑ Logging</s>   <span style="margin-left:30px;color:#dd0000; font-weight:bold; text-decoration:underline;transform:rotate(20deg)">FluentD</span>  
+<s>☑ Resiliency</s>   <span style="margin-left:30px;color:#dd0000; font-weight:bold; text-decoration:underline;transform:rotate(20deg)">Istio</span>  
 ☑ Authentication  
 ☑ Monitoring
 </div>
 
 ---
 
-# AuthN/Z Revisited
+# Authentication Revisited
 
 ---
 
-## AuthN/Z
+## Authentication
 
 * Let's use a sidecar
 * Soluto/Airbag
 
 ---
 
-## AuthN/Z - Airbag
+## Authentication - Airbag
 
 <img src="./airbag.png" style="width:100%" />
 
---- 
+---
 
-## AuthN/Z - Airbag
+## Authentication - Airbag
 
 * Configuration yaml example
 * Open source
 
 ---
 
-<div style="text-align:left; font-size:60px; margin:0 20%">
-<s>☑ Logging</s>   
-<s>☑ Resiliency</s>   
-<s>☑ Authentication</s>  
-☑ Monitoring
+<div style="text-align:left; font-size:1.25em; margin:0 20%">
+<s>☑ Logging</s>   <span style="margin-left:0.3em;color:#dd0000; font-weight:bold; text-decoration:underline">FluentD</span>  
+<s>☑ Resiliency</s>   <span style="margin-left:0.3em;color:#dd0000; font-weight:bold; text-decoration:underline">Istio</span>  
+<s>☑ Authentication</s> <span style="margin-left:0.3em;color:#dd0000; font-weight:bold; text-decoration:underline;">Airbag</span>  
+☑ Monitoring  
 </div>
 
 ---
@@ -120,9 +116,9 @@
 
 ---
 
-<div style="text-align:left; font-size:60px; margin:0 20%">
-<s>☑ Logging</s>   
-<s>☑ Resiliency</s>   
+<div style="text-align:left; font-size:1.3em; margin:0 20%">
+<s>☑ Logging</s>  
+<s>☑ Resiliency</s>  
 <s>☑ Authentication</s>  
 <s>☑ Monitoring</s>
 </div>
@@ -131,7 +127,7 @@
 
 ##  A new requirement
 
-* Sending messages at scale
+* Sending lots of messages
 * Batch process 
 
 ---
@@ -156,13 +152,13 @@
 
 ---
 
+## DQD - Demo
+
+---
+
 ## DQD - benefits
 
 * Scaled with service
 * Trusted
 * Agnostic 
 * Testing
-
----
-
-## DQD - Demo

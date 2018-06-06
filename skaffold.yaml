@@ -19,4 +19,5 @@ deploy:
     - ./support/notifications-service.yaml
     - ./first-iteration/deployment/notifications.yaml
     - ./second-iteration/service/deployment/notifications.yaml
+    - ./second-iteration/service/deployment/tokens.yaml
     - ./second-iteration/configs/istio/failure.yaml

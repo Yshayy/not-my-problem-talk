@@ -167,3 +167,15 @@ spec:
       - name: varlibdockercontainers
         hostPath:
           path: /var/lib/docker/containers
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: test-dqd
+spec:
+  hosts:
+  - testdqd.queue.core.windows.net
+  ports:
+  - number: 443
+    name: https-port
+    protocol: https
