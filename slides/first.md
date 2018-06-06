@@ -33,7 +33,13 @@
 
 ---
 
-# What about Logging?
+<div style="text-align:left; font-size:60px; margin:0 20%">
+<span style="font-weight:600">🤣 Logging </span> 
+<div style="color:#333333">
+☒ ???????  
+☒ ???????????  
+☒ ???????????
+</div>
 
 ---
 
@@ -45,7 +51,13 @@
 
 ---
 
-# What about Resiliency?
+<div style="text-align:left; font-size:60px; margin:0 20%">
+☑ Logging  
+<span style="font-weight:600">🤣 Resiliency </span> 
+<div style="color:#333333">
+☒ ???????  
+☒ ???????????
+</div>
 
 ---
 
@@ -57,14 +69,20 @@
 
 ---
 
-# What about Authentication?
+<div style="text-align:left; font-size:60px; margin:0 20%">
+☑ Logging  
+☑ Resiliency  
+<span style="font-weight:600">🤣 Authentication</span>
+<div style="color:#333333">
+🤣 ???????????
+</div>
 
 ---
 
 ## Authentication
 
 * We'll use JWT token
-* Add picture
+* OIDC/OAuth2
 
 ---
 
@@ -72,7 +90,12 @@
 <!-- Add business monitoring -->
 <!-- Add metrics -->
 
-# What about Monitoring?
+<div style="text-align:left; font-size:60px; margin:0 20%">
+☑ Logging  
+☑ Resiliency  
+☑ Authentication  
+<span style="font-weight:600">🤣 Monitoring<span>
+</div>
 
 ---
 
@@ -80,3 +103,12 @@
 
 * Performance metrics, throughput, latency
 * Statsd client
+
+---
+
+<div style="text-align:left; font-size:60px; margin:0 20%">
+☑ Logging  
+☑ Resiliency  
+☑ Authentication  
+☑ Monitoring
+</div>

@@ -26,7 +26,18 @@
 
 ## Logging - extra benefits
 
-* Different policies - low/high retention
+* Different policies
+* Info/Debug  -> low retention 
+* Error/Fatal  -> high retention 
+
+---
+
+<div style="text-align:left; font-size:60px; margin:0 20%">
+<s>☑ Logging  </s>   
+☑ Resiliency  
+☑ Authentication  
+☑ Monitoring
+</div>
 
 ---
 
@@ -63,6 +74,15 @@
 
 ---
 
+<div style="text-align:left; font-size:60px; margin:0 20%">
+<s>☑ Logging</s>   
+<s>☑ Resiliency</s>   
+☑ Authentication  
+☑ Monitoring
+</div>
+
+---
+
 # AuthN/Z Revisited
 
 ---
@@ -83,6 +103,16 @@
 ## AuthN/Z - Airbag
 
 * Configuration yaml example
+* Open source
+
+---
+
+<div style="text-align:left; font-size:60px; margin:0 20%">
+<s>☑ Logging</s>   
+<s>☑ Resiliency</s>   
+<s>☑ Authentication</s>  
+☑ Monitoring
+</div>
 
 ---
 
@@ -90,11 +120,19 @@
 
 ---
 
-##  And there's a bonus
+<div style="text-align:left; font-size:60px; margin:0 20%">
+<s>☑ Logging</s>   
+<s>☑ Resiliency</s>   
+<s>☑ Authentication</s>  
+<s>☑ Monitoring</s>
+</div>
 
 ---
 
-## What if we want to batch send messages?
+##  A new requirement
+
+* Sending messages at scale
+* Batch process 
 
 ---
 
@@ -123,6 +161,7 @@
 * Scaled with service
 * Trusted
 * Agnostic 
+* Testing
 
 ---
 

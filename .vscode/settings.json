@@ -7,7 +7,7 @@
     "editor.selectionBackground": "#aaeeff"
   },
   "workbench.statusBar.visible": false,
-  "workbench.activityBar.visible": true,
+  // "workbench.activityBar.visible": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "none",
   "editor.renderIndentGuides": false,
