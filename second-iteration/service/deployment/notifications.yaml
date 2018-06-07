@@ -26,7 +26,7 @@ spec:
         - containerPort: 3000
       # Airbag starts here!
       - name: "airbag"
-        image: "soluto/airbag:0.0.3"
+        image: "soluto/airbag:0.0.4"
         ports:
           - containerPort: 3001
         env:
@@ -44,8 +44,6 @@ spec:
             value: http://+:3001
           - name: ASPNETCORE_ENVIRONMENT
             value: Development
-          - name: BACKEND_HOST_NAME
-            value: localhost
         # Airbag ends here
 
         # DQD starts here

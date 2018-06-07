@@ -22,7 +22,7 @@ app.get('/api/users/:userId/messages', (req, res) => {
 
 app.post('/api/users/:userId/messages', (req, res) => {
     setTimeout(()=>{
-        (messages[req.param("userId")] || []).push(req.body.message)
+        (messages[req.param("userId")] || []).unshift(`${new Date().toISOString()}:${req.body.message}`)
         return res.json({})
     }, 200);
 });

@@ -14,7 +14,7 @@ queueService.createMessage('test', JSON.stringify({
     // Message inserted
   }
   else{
-      console.log("success");
+      console.log("queue message");
   }
 })
 };
