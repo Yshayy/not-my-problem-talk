@@ -1,9 +1,19 @@
 @startuml
 skinparam monochrome reverse
+skinparam frame {
+    backgroundColor Yellow
+}
+skinparam cloud {
+    backgroundColor Yellow
+}
 
-frame notificationsPod {
+skinparam component{
+    backgroundColor Orange
+}
+
+frame "          Notifcations Pod     " {
     node notifications
-    component "sidecar" as dqd
+    component "sidecar" as dqd 
 }
 
 cloud {
@@ -11,6 +21,6 @@ cloud {
 }
 
 
-dqd <-up- queue
-dqd -right-> notifications 
+dqd <-up- queue:"  read messages"
+dqd -right-> notifications
 @enduml

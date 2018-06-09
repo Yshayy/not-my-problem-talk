@@ -1,16 +1,31 @@
 @startuml
 skinparam monochrome reverse
 left to right direction
+skinparam frame {
+    backgroundColor Yellow
+}
+skinparam cloud {
+    backgroundColor Yellow
+}
 
-frame notificationsPod {
+skinparam component{
+    backgroundColor Orange
+}
+
+frame "Notifications Pod" {
     node notifications
     component "proxy (Envoy)" as envoyA
 }
 
-node users
-node messages
+frame "Users Pod" as UsersPod {
+    node users
+}
+
+frame "Messagess Pod" as MessagesPod {
+    node messages
+}
 
 notifications <--> envoyA 
-envoyA <--> users 
-envoyA <--> messages 
+envoyA <--> users:"retry"
+envoyA <--> messages:"retry"
 @enduml

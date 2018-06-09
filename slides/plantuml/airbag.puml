@@ -1,11 +1,22 @@
 @startuml
 skinparam monochrome reverse
+skinparam frame {
+    backgroundColor Yellow
+}
+skinparam cloud {
+    backgroundColor Yellow
+}
+
+skinparam component{
+    backgroundColor Orange
+}
+
 left to right direction
 actor user
 
 cloud "OIDC Proivder" as IP
 
-frame notificationsPod {
+frame "Notifcations Pod" {
     node notifications
     component "airbag" as airbag
 }

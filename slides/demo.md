@@ -1,6 +1,5 @@
 # Let's start
 
-
 ---
 
 <!-- Add business context -->
@@ -161,20 +160,19 @@
 
 * Service-mesh, THE buzzword for 2018
 * Istio
-* Injects envoy sidecar
+* Injects proxy sidecar
 
 ---
 
-## Resiliency - Istio 
+## Service mesh - Istio 
 
 <img src="./service-mesh.png" style="width:100%" />
 
 ---
 
-## Resiliency - Istio 
+## Service mesh - Resiliency 
 
 * Configurable failure handling
-* Not currently deployed at Soluto
 
 ---
 
@@ -183,12 +181,13 @@
 * Tracing
 * Traffic management
 * Too many to count...
+* Still at early stage
 
 ---
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
-<s>☑ Logging</s>   <span style="margin-left:30px;color:#dd0000; font-weight:bold; text-decoration:underline;transform:rotate(20deg)">FluentD</span>  
-<s>☑ Resiliency</s>   <span style="margin-left:30px;color:#dd0000; font-weight:bold; text-decoration:underline;transform:rotate(20deg)">Istio</span>  
+<s>☑ Logging</s>  
+<s>☑ Resiliency</s>  
 ☑ Authentication  
 ☑ Monitoring
 </div>
@@ -220,9 +219,9 @@
 ---
 
 <div style="text-align:left; font-size:1.25em; margin:0 20%">
-<s>☑ Logging</s>   <span style="margin-left:0.3em;color:#dd0000; font-weight:bold; text-decoration:underline">FluentD</span>  
-<s>☑ Resiliency</s>   <span style="margin-left:0.3em;color:#dd0000; font-weight:bold; text-decoration:underline">Istio</span>  
-<s>☑ Authentication</s> <span style="margin-left:0.3em;color:#dd0000; font-weight:bold; text-decoration:underline;">Airbag</span>  
+<s>☑ Logging</s>   
+<s>☑ Resiliency</s>   
+<s>☑ Authentication</s>  
 ☑ Monitoring  
 </div>
 
