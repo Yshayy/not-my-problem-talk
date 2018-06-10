@@ -32,7 +32,7 @@
 ---
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
-<span style="font-weight:600">🤣 Logging </span> 
+<span style="font-weight:600">☐ Logging </span> 
 <div style="color:#333333">
 ☒ ???????  
 ☒ ???????????  
@@ -51,7 +51,7 @@
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
-<span style="font-weight:600">🤣 Resiliency </span> 
+<span style="font-weight:600">☐ Resiliency </span> 
 <div style="color:#333333">
 ☒ ???????  
 ☒ ???????????
@@ -70,9 +70,9 @@
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
 ☑ Resiliency  
-<span style="font-weight:600">🤣 Authentication</span>
+<span style="font-weight:600">☐ Authentication</span>
 <div style="color:#333333">
-🤣 ???????????
+☐ ???????????
 </div>
 
 ---
@@ -92,7 +92,7 @@
 ☑ Logging  
 ☑ Resiliency  
 ☑ Authentication  
-<span style="font-weight:600">🤣 Monitoring<span>
+<span style="font-weight:600">☐ Monitoring<span>
 </div>
 
 ---
@@ -181,7 +181,6 @@
 * Tracing
 * Traffic management
 * Too many to count...
-* Still at early stage
 
 ---
 
@@ -228,6 +227,12 @@
 ---
 
 # Monitoring
+
+---
+
+## Monitoring
+
+<img src="./prom.png" style="width:100%" />
 
 ---
 
