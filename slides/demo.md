@@ -61,7 +61,7 @@
 
 ## Resiliency
 
-* The network can failed
+* The network can fail
 * We want to retry failed requests
 * Let's add Polly
 
