@@ -1,0 +1,11 @@
+@startuml
+skinparam monochrome reverse
+
+node users
+node notifications
+node messages
+actor "admin/service" as admin
+notifications <--> users: Get user details
+notifications --> messages: Post message
+admin -> notifications: Notification request
+@enduml

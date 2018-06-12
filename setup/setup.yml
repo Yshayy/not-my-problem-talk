@@ -1,0 +1,181 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-v1
+  labels:
+    istio-injection: enabled
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: demo-v1
+  name: graphite
+spec:
+  selector:
+    matchLabels:
+      app: graphite
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: graphite
+    spec:
+      containers:
+      - name: graphite
+        image:  graphiteapp/graphite-statsd
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 80
+        - name: carbon
+          containerPort: 2003
+        - name: statsd
+          containerPort: 8125
+---
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: demo-v1
+  name: graphite
+spec:
+  selector:
+    app: graphite
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+    - name: statsd
+      protocol: UDP
+      port: 8125
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: istio-system
+  name: metrics-ingress
+  annotations:
+    kubernetes.io/ingress.class: istio
+spec:
+  rules:
+    - host: grafana.infra
+      http:
+        paths:
+          - backend:
+              serviceName: grafana
+              servicePort: 3000
+    - host: prom.infra
+      http:
+        paths:
+          - backend:
+              serviceName: prometheus
+              servicePort: 9090
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: demo-v1
+  name: graphite-ingress
+  annotations:
+    kubernetes.io/ingress.class: istio
+spec:
+  rules:
+    - host: graphite.infra
+      http:
+        paths:
+          - backend:
+              serviceName: graphite
+              servicePort: 80
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fluentd
+  namespace: kube-system
+
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: fluentd
+  namespace: kube-system
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: fluentd
+roleRef:
+  kind: ClusterRole
+  name: fluentd
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: fluentd
+  namespace: kube-system
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: fluentd
+  namespace: kube-system
+  labels:
+    k8s-app: fluentd-logging
+    version: v1
+    kubernetes.io/cluster-service: "true"
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: fluentd-logging
+        version: v1
+        kubernetes.io/cluster-service: "true"
+    spec:
+      serviceAccount: fluentd
+      serviceAccountName: fluentd
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: fluentd
+        image: fluent/fluentd-kubernetes-daemonset:v0.12-debian-logzio
+        env:
+          - name: LOGZIO_TOKEN
+            value: "fake"
+          - name: LOGZIO_LOGTYPE
+            value: "kubernetes"
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: test-dqd
+spec:
+  hosts:
+  - testdqd.queue.core.windows.net
+  ports:
+  - number: 443
+    name: https-port
+    protocol: https

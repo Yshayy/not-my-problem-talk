@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: demo-v1
+  name: notifications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notifications
+      version: "1"
+  template:
+    metadata:
+      labels:
+        app: notifications
+        version: "1"
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      containers:
+      - name: notifications
+        image: notifications
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,19 @@
+{
+  "name": "not-my-problem-talk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "code.js",
+  "scripts": {
+    "start:support": "eval $(minikube docker-env) && docker-compose build && kubectl apply -f ./support/support.yaml && ./update-ingress-hosts.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yshayy/not-my-problem-talk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yshayy/not-my-problem-talk/issues"
+  },
+  "homepage": "https://github.com/Yshayy/not-my-problem-talk#readme"
+}

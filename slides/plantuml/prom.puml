@@ -1,0 +1,8 @@
+@startuml
+skinparam monochrome reverse
+left to right direction
+
+node "Prometheus" as prom
+node "Istio (Mixer)" as mesh
+prom --> mesh: Scrapes
+@enduml

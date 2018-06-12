@@ -1,0 +1,23 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  artifacts:
+  - imageName: users
+    workspace: ./support/users
+  - imageName: messages
+    workspace: ./support/messages
+  - imageName: client
+    workspace: ./support/client
+  - imageName: notifications
+    workspace: ./first-iteration
+  - imageName: notificationsv2
+    workspace: ./second-iteration/service
+deploy:
+  kubectl:
+    manifests:
+    - ./support/support.yaml
+    - ./support/notifications-service.yaml
+    - ./first-iteration/deployment/notifications.yaml
+    - ./second-iteration/service/deployment/notifications.yaml
+    - ./second-iteration/service/deployment/tokens.yaml
+    - ./second-iteration/configs/istio/failure.yaml

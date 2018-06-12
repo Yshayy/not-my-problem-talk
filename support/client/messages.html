@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.2.0/rxjs.umd.js"></script>
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+
+<style>
+    body {
+        background-color: #FAFAFA;
+        font-family: sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    .Messages{
+        padding-left: 40px;
+        width: 80%;
+        min-width: 300px;
+    }
+
+    .Messages > div {
+        display: flex;
+        margin: 16px 0;
+    }
+    .Messages > div > .message{
+        background-color: white;
+        border: #CCCCCC solid 2px;
+        border-radius: 4px;
+        padding: 18px 12px;
+        color: #666666;
+        font-size: 18px;
+    }
+    .Messages > div > .time{
+        padding: 6px;
+        color: #00aeff;
+        font-size: 14px;
+        width: 100px;
+    }
+
+    .Messages > div:first {
+        transition-property: all;
+        transition-duration: 1s;
+    }
+</style>
+
+<body>
+
+    <div>
+        <div style="box-sizing: border-box; padding:10px; background-color: #ffffff; height: 40px; border-bottom: 2px solid gray;margin-bottom: 10px;">
+            <button style="cursor: pointer; border-color:#CCCCCC; color: #696969; margin-top: -4px; border-radius: 12px; font-size: 14px; padding:4px 18px; float:right" class="Clear">Clear</button>
+            <div style="color:#666666">Alice's Mailbox</div>
+        </div>
+        
+        <div class="Messages">
+
+        </div>
+    </div>
+
+    <script>
+        function reformatTime(x){
+            const date = new Date(x);
+            return `
+                <div>${date.toLocaleTimeString()}</div>
+                <div>${date.toLocaleDateString()}</div>
+            `;
+        }
+
+        async function refresh() {
+            const res = await fetch("http://messages.demo-v1/api/users/alice/messages");
+            const data = await res.json();
+            document.querySelector(".Messages").innerHTML = data.map((x, i) => `<div${i===0 && ' class="fadeIn animated"' || "" }><div class="message">${x.message}</div><div class="time">${reformatTime(x.time)}</div></div>`).join("")
+        }
+
+        document.querySelector(".Clear").addEventListener("click", async () => {
+            await fetch("http://messages.demo-v1/api/users/alice/messages", {
+                method: "delete"
+            });
+            refresh();
+        })
+        refresh();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+
+http://oidc.demo-v1/connect/authorize?client_id=mock&redirect_uri=http://client.demo-v1&nonce=asdasdssasazz&scope=openid&response_type=id_token%20token
