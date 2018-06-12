@@ -179,6 +179,7 @@
 ## Service mesh extra benefits
 
 * Tracing
+* Security
 * Traffic management
 * Too many to count...
 
