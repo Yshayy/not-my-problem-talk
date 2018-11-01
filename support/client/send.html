@@ -116,7 +116,7 @@
     <script>
 
         document.querySelector(".send").addEventListener("click", () => {
-            fetch("http://notifications.demo-v1/api/notifications", {
+            fetch("http://notifications.localtest.me/api/notifications", {
                 method: "post",
                 headers: {
                     "content-type": "application/json",
@@ -143,7 +143,7 @@
         });
 
         document.querySelector(".login").addEventListener("click", () => {
-            window.parent.location = "http://oidc.demo-v1/connect/authorize?client_id=mock&redirect_uri=http://client.demo-v1&nonce=" + Math.random() + "&scope=openid&response_type=id_token%20token"
+            window.parent.location = "http://oidc.demo-v1/connect/authorize?client_id=mock&redirect_uri=http://client.localtest.me&nonce=" + Math.random() + "&scope=openid&response_type=id_token%20token"
         });
 
         if (window.parent.location.hash.includes("access_token")) {

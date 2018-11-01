@@ -93,7 +93,7 @@ spec:
         - name: CLIENT_ID
           value: mock
         - name: REDIRECT_URIS
-          value: http://client.demo-v1
+          value: http://client.localtest.me
         - name: TEST_USER
           value: '{"SubjectId":"1","Username":"User1","Password":"pwd"}'
         ports:
@@ -147,36 +147,66 @@ spec:
       port: 80
       targetPort: 80
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
 metadata:
+  name: client
   namespace: demo-v1
-  name: demo-v1-ingress
-  annotations:
-    kubernetes.io/ingress.class: istio
 spec:
-  rules:
-  - host: users.demo-v1
-    http:
-      paths:
-        - backend:
-            serviceName: users
-            servicePort: 80
-  - host: messages.demo-v1
-    http:
-      paths:
-        - backend:
-            serviceName: messages
-            servicePort: 80
-  - host: oidc.demo-v1
-    http:
-      paths:
-        - backend:
-            serviceName: oidc
-            servicePort: 80
-  - host: client.demo-v1
-    http:
-      paths:
-        - backend:
-            serviceName: client
-            servicePort: 80
+  hosts:
+  - client.localtest.me
+  gateways:
+  - gateway.default.svc.cluster.local
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+    - destination:
+        host: client.demo-v1.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: oidc
+  namespace: demo-v1
+spec:
+  hosts:
+  - oidc.localtest.me
+  - oidc.demo-v1
+  gateways:
+  - gateway.default.svc.cluster.local
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+      - destination:
+          host: oidc.demo-v1.svc.cluster.local
+          port:
+            number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: messages
+  namespace: demo-v1
+spec:
+  hosts:
+  - messages.localtest.me
+  gateways:
+  - gateway.default.svc.cluster.local
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+      - destination:
+          host: messages.demo-v1.svc.cluster.local
+          port:
+            number: 80

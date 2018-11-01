@@ -48,44 +48,6 @@ spec:
       protocol: UDP
       port: 8125
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  namespace: istio-system
-  name: metrics-ingress
-  annotations:
-    kubernetes.io/ingress.class: istio
-spec:
-  rules:
-    - host: grafana.infra
-      http:
-        paths:
-          - backend:
-              serviceName: grafana
-              servicePort: 3000
-    - host: prom.infra
-      http:
-        paths:
-          - backend:
-              serviceName: prometheus
-              servicePort: 9090
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  namespace: demo-v1
-  name: graphite-ingress
-  annotations:
-    kubernetes.io/ingress.class: istio
-spec:
-  rules:
-    - host: graphite.infra
-      http:
-        paths:
-          - backend:
-              serviceName: graphite
-              servicePort: 80
----
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -179,3 +141,80 @@ spec:
   - number: 443
     name: https-port
     protocol: https
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grafana
+spec:
+  hosts:
+  - "grafana.localtest.me"
+  gateways:
+  - gateway
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+      - destination:
+          host: grafana.istio-system.svc.cluster.local
+          port:
+            number: 3000
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: servicegraph
+spec:
+  hosts:
+  - "servicegraph.localtest.me"
+  gateways:
+  - gateway
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+      - destination:
+          host: servicegraph.istio-system.svc.cluster.local
+          port:
+            number: 8088
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kiali
+spec:
+  hosts:
+  - "kiali.localtest.me"
+  gateways:
+  - gateway
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+      - destination:
+          host: kiali.istio-system.svc.cluster.local
+          port:
+            number: 20001
+  

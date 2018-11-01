@@ -69,13 +69,13 @@
         }
 
         async function refresh() {
-            const res = await fetch("http://messages.demo-v1/api/users/alice/messages");
+            const res = await fetch("http://messages.localtest.me/api/users/alice/messages");
             const data = await res.json();
             document.querySelector(".Messages").innerHTML = data.map((x, i) => `<div${i===0 && ' class="fadeIn animated"' || "" }><div class="message">${x.message}</div><div class="time">${reformatTime(x.time)}</div></div>`).join("")
         }
 
         document.querySelector(".Clear").addEventListener("click", async () => {
-            await fetch("http://messages.demo-v1/api/users/alice/messages", {
+            await fetch("http://messages.localtest.me/api/users/alice/messages", {
                 method: "delete"
             });
             refresh();

@@ -6,24 +6,41 @@ metadata:
 spec:
   selector:
     app: notifications
-    version: "1"
+    version: "2"
   ports:
     - name: http
       port: 80
-      targetPort: 3000
+      targetPort: 3001
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
 metadata:
+  name: notifications
   namespace: demo-v1
-  name: demo-v1-ingress-notifications
-  annotations:
-    kubernetes.io/ingress.class: istio
 spec:
-  rules:
-  - host: notifications.demo-v1
-    http:
-      paths:
-        - backend:
-            serviceName: notifications
-            servicePort: 80
+  hosts:
+  - notifications.localtest.me
+  gateways:
+  - gateway.default.svc.cluster.local
+  http:
+  - appendHeaders:
+     x-envoy-max-retries: "10"
+     x-envoy-retry-on: connect-failure
+     x-envoy-upstream-rq-timeout-ms: "0"
+    route:
+    - destination:
+        host: notifications.demo-v1.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: notifications-dest-rule
+spec:
+  host: notifications.demo-v1.svc.cluster.local
+  trafficPolicy: # Apply to all ports
+    connectionPool:
+      tcp:
+        maxConnections: 100
+        connectTimeout: 30ms
