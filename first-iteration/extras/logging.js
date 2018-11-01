@@ -1,6 +1,5 @@
 const winston = require("winston")
 const logzioWinston = require('winston-logzio');
-const morgan = require('morgan');
 
 const logger = new winston.Logger({
   transports: [

@@ -105,20 +105,23 @@
 
 <!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
 
-<div class="blue" style="font-weight:bold;">
+<span class="blue" style="font-weight:bold;">
 Monoliths ----→ Lots of Microservices
+</span>
+<div>
+<img style="border:none;box-shadow:none" src="./micro1.png" />
 </div>
-
 
 ---
 
 <!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
 
-<div class="blue" style="font-weight:bold;">
+<span class="blue" style="font-weight:bold;">
 Monoliths ----→ Lots of Microservices
+</span>
+<div>
+<img style="border:none;box-shadow:none" src="./micro2.png" />
 </div>
-
-
 
 ---
 
@@ -225,7 +228,7 @@ Monoliths ----→ Lots of Microservices
 
 ## Flow - Notification service
 
-<img src="./app.png" style="width:800px" />
+<img src="./app.png" style="width:600px" />
 
 1. Get user identifier and notification type
 * Fetch user details from users micro-service
@@ -329,7 +332,7 @@ Monoliths ----→ Lots of Microservices
 ### What just happend here?
 
 <div style="position: relative">
-<img style="box-shadow:none; border:none; width:600px" src="./deps.png" />
+<img style="box-shadow:none; border:none; width:400px" src="./deps.png" />
 
 <div class="fragment fade-in" style="
 background-color:orange;
@@ -341,7 +344,7 @@ position:absolute;
         left: 0;
         right: 0;
         margin: auto;
-        top:300px;
+        top:200px;
         ">
 We wanted a small micro service and got a bunch of code and dependencies
 </div>
@@ -353,7 +356,7 @@ We wanted a small micro service and got a bunch of code and dependencies
 ### What just happend here?
 
 <div style="position: relative">
-<img style="box-shadow:none; border:none; width:600px" src="./deps.png" />
+<img style="box-shadow:none; border:none; width:400px" src="./deps.png" />
 
 <div  style="
 background-color:orange;
@@ -365,7 +368,7 @@ position:absolute;
         left: 0;
         right: 0;
         margin: auto;
-        top:300px;
+        top:200px;
         ">
 4 X Lines of codes !!! <br/>
 3 X Direct dependencies !!!
@@ -380,7 +383,7 @@ position:absolute;
 
 * Shared template - dependencies and code blocks
 * Used by teams as a boilerplate
-* Shared “common” packages
+* Shared “common” packages/frameworks
 * Lots of DI magic
 * Worked well until...
 
@@ -414,7 +417,7 @@ position:absolute;
 
 ### Not all languages are born equal
 
-<img src="./matrix.png">
+<img style="border:none;box-shadow:none" src="./matrix.png">
 
 ---
 
@@ -448,7 +451,7 @@ position:absolute;
 
 ### Kubernetes
 
-* Orchestrate all workloads
+* Orchestrate our services
 * Solves many cross cutting concerns
 
 ---
@@ -615,7 +618,7 @@ position:absolute;
 
 ---
 
-## Previous solution
+## Previous solutions
 
 <img src="./dqd-intro.png" style="width:100%" />
 

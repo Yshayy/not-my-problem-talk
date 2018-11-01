@@ -137,6 +137,7 @@
                     parent.frames[1].refresh()
                 }
             }, ex => {
+                if (ex.includes("503")) retrun;
                 alert("error sending message");
                 console.error(ex)
             });
