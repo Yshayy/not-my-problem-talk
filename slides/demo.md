@@ -154,7 +154,7 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 
 ## About me
@@ -173,7 +173,7 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## About Soluto
 
@@ -185,13 +185,13 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 <img style="border:none; box-shadow:none" src="./soluto-micro.png" />
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Shifting to microservices
 
@@ -201,19 +201,19 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 # How does a service look like?
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ### DEMO - Notifications service V1
 
 ---
 
-<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Spec - Notifications service
 
@@ -225,7 +225,7 @@ Monoliths ----→ Lots of Microservices
 
 ## Flow - Notification service
 
-<img src="./app.png" style="width:80%" />
+<img src="./app.png" style="width:800px" />
 
 1. Get user identifier and notification type
 * Fetch user details from users micro-service
@@ -324,6 +324,155 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+
+### What just happend here?
+
+<div style="position: relative">
+<img style="box-shadow:none; border:none; width:600px" src="./deps.png" />
+
+<div class="fragment fade-in" style="
+background-color:orange;
+color:white;
+font-weight:bold;
+width:800px;
+box-shadow: 3px 6px 3px #969696;
+position:absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top:300px;
+        ">
+We wanted a small micro service and got a bunch of code and dependencies
+</div>
+
+---
+
+<!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
+
+### What just happend here?
+
+<div style="position: relative">
+<img style="box-shadow:none; border:none; width:600px" src="./deps.png" />
+
+<div  style="
+background-color:orange;
+color:white;
+font-weight:bold;
+width:800px;
+box-shadow: 3px 6px 3px #969696;
+position:absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top:300px;
+        ">
+4 X Lines of codes !!! <br/>
+3 X Direct dependencies !!!
+</div>
+
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Soluto - microservices v1
+
+* Shared template - dependencies and code blocks
+* Used by teams as a boilerplate
+* Shared “common” packages
+* Lots of DI magic
+* Worked well until...
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Problems
+
+* Upgrades are **Hard**
+* Dependencies can break
+* Dependencies can conflict
+* Dependencies requires re-build+re-deploy
+* Extremely difficult to introduce global change
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+## And that's not the worse...
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### We need to solve it for each and every programming language
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Not all languages are born equal
+
+<img src="./matrix.png">
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+ <div style="font-size:1.5em;color:#696969">
+ As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>.
+ </div>
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+ <div style="font-size:1.5em;color:#696969">
+ Which of these concerns cam be solved at <span style="color:#00aeef;font-weight:bold" > environment level </span> ?
+ </div>
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Soluto - microservices v2
+
+<div style="justify-content:center; display:flex; align-items:center" >
+<img style="border-radius:40px; padding:10px;width:250px;height:230px;" src="./docker.png" />
+<div class="blue" style="width:250px;font-size:200px"> + </div>
+<img style="border-radius:40px; padding:10px;width:250px;height:230px" src="./k8s.png " />
+</div>
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Kubernetes
+
+* Orchestrate all workloads
+* Solves many cross cutting concerns
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### A **Sidecar** Container
+<div style="position:relative;float:right">
+<img style=" width:350px; border:none;  box-shadow:none; " src="./pod.png" />
+<img class="fragment" style="position:absolute;right:10px; top:300px; width:500px;border:none;box-shadow:none;" src="./replica.png" />
+<img class="fragment" style="position:absolute;right:400px; top:300px; width:500px;border:none;box-shadow:none;" src="./replica.png" />
+</div>
+* Additonal Container in a **pod**
+* Provide **functionality** <br/> to support main app
+* **Co-scheduled** together in <br/> replicas
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Sidecars can help us solve infrastructure concerns **externally** to our app
+
+---
+
 # Let's get rid of stuff
 
 ---
@@ -351,6 +500,7 @@ Monoliths ----→ Lots of Microservices
 * Different policies
 * Info/Debug  -> low retention 
 * Error/Fatal  -> high retention 
+* Plugins -> anonymization
 
 ---
 
@@ -496,3 +646,142 @@ Monoliths ----→ Lots of Microservices
 * Trusted
 * Agnostic 
 * Testing
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Second iteration
+
+* Lots of code elimination
+* Dependencies removal
+* Leaner, more testable service
+* Declarative approach
+* Better visibility
+
+---
+
+### Architecture
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+<img style="width:600px" src="./arch.png">
+</div>
+* External processes
+* **Agents & Proxies**
+* Co-scheduling
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### How far can we go?
+
+* **Gateways** - routing, caching, validation, rate limiting, policies
+* **Configuration** - secrets, cloud resource binding
+* **Tools** - remote debugging/profiling
+Supporting services - analytics, feature flags, etc…
+* **Probably more**… (https://landscape.cncf.io/)
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+## What about **serverless**?
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Serverless
+
+* Allows you to focus only on functions and nothing else…
+* Sort-of language agnostic
+* Event-driven model with separation between triggers/sources/sinks managed by declarative configuration
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Serverless - drawbacks
+
+* Works mostly for stateless workload
+* Popular solutions comes with serious vendor lock-in across all stack
+* Many promising k8s implementations
+* Many efforts to make it better/stronger/faster and standard
+* Might be the best solution in the future
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### How did it **affect** us?
+* Still on-going process
+* Cleaner, leaner services
+Testing got easier
+* Faster adoptions of new languages and tools
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+ <div style="font-size:1.5em;color:#696969">
+ As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>.
+ </div>
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+# What can the infrastructure do for you?
+
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+## Thank you
+
+
+---
+
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+## Questions
+
+
+---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+
+### Additonal resources - tools
+
+* AirBag - github.com/soluto/airbag 
+* DQD - github.com/soluto/dqd
+* FluentD - https://www.fluentd.org/
+* Prometheus - https://prometheus.io
+* Istio - https://istio.io/
+* Skaffold - github.com/GoogleContainerTools/skaffold
+* Oidc-server-mock - github.com/Soluto/oidc-server-mock
+* FluentD k8s level filter - github.com/Soluto/fluent-plugin-kubernetes-log-level
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### Additonal resources
+
+<div style="font-size:0.8em">
+<ul>
+<li>CNCF landscape - https://landscape.cncf.io/ </li>
+<li>
+Design patterns for container-based distributed systems - https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf
+</li>
+<li>
+Introduction to modern network load balancing and proxying - https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236
+</li>
+</ul>
+</div>
