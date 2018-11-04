@@ -1,0 +1,295 @@
+scale 1.2
+
+skinparam {
+    Default {
+        Font {
+            Name Open Sans
+        }
+    }
+    shadowing false
+    backgroundColor White
+    monochrome false 
+    'Black and White MODE
+    title {
+        Font {
+            Name Open Sans
+            Color #00aeef
+            Style bold
+            Size 28
+        }
+    }
+    actor {
+            BackgroundColor White
+            BorderColor SteelBlue
+            Font {
+                Name Open Sans
+                Color #969696
+                Style plain 
+                Size 16
+            }
+        }
+    node {
+            backgroundColor white
+            borderColor #00aeef
+            Font {
+                Name Open Sans
+                Color #00aeef
+                Style plain 
+                Size 16
+            }
+    }
+    cloud {
+        BackgroundColor #00aeef
+        BorderColor SteelBlue
+        Font {
+            Name Open Sans
+            Color White
+            Style plain 
+            Size 16
+        }
+    }
+    queue {
+        BackgroundColor #00aeef
+        BorderColor SteelBlue
+        Font {
+            Name Open Sans
+            Color White
+            Style plain 
+            Size 16
+        }
+    }
+    frame {
+        BorderColor #969696
+        Font {
+            Name Open Sans
+            Color #00aeef
+            Style bold
+            Name open-sans
+            Size 14
+        }
+    }
+    header {
+        Font {
+            Color Red
+            Size 12
+        }
+    }
+    footer {
+    }
+    legend {
+        Font {
+            Size 12
+        }
+    }
+    note {
+        BorderColor Chocolate
+        Font {
+            Size 12
+        }
+    }
+    Activity {
+        StartColor Black
+        EndColor Black
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        BarColor Navy
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+        }
+        Arrow {
+            Color SteelBlue
+            Font {
+                Color DarkGray
+                Style italic 
+                Size 12
+            }
+        }
+    }
+    State {
+        StartColor Black
+        EndColor Black
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        BarColor Navy
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+        }
+        Arrow {
+            Color SteelBlue
+            Font {
+                Color DarkGray
+                Style italic 
+                Size 12
+            }
+        }
+    }
+    Object {
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        BarColor Navy
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+        }
+        Arrow {
+            Color SteelBlue
+            Font {
+                Color DarkGray
+                Style italic 
+                Size 12
+            }
+        }
+    }
+    class {
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+        }
+    }
+    component {
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+            Name Open Sans
+        }
+        Interface {
+            BackgroundColor AliceBlue
+            BorderColor SteelBlue
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        node {
+            backgroundColor AliceBlue
+            borderColor SteelBlue
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        database {
+            backgroundColor AliceBlue
+            borderColor SteelBlue
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        Arrow {
+            Color SteelBlue
+            Font {
+                Color DarkGray
+                Style italic 
+                Size 12
+            }
+        }
+    }
+    usecase {
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+        }
+        
+        Arrow {
+            Color SteelBlue
+            Font {
+                Color DarkGray
+                Style italic 
+                Size 12
+            }
+        }
+    }
+    sequence {
+        BackgroundColor AliceBlue
+        BorderColor SteelBlue
+        Font {
+            Color Black
+            Style plain 
+            Size 16
+        }
+        LifeLine {
+            BackgroundColor OldLace       
+            BorderColor SteelBlue
+        }
+        Participant {
+            BackgroundColor AliceBlue
+            BorderColor SteelBlue
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        boundary {
+            BackgroundColor AliceBlue
+            BorderColor SteelBlue
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        control {
+            BackgroundColor LightYellow
+            BorderColor Brown
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        entity {
+            BackgroundColor LightYellow
+            BorderColor Brown
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        database {
+            BackgroundColor LightYellow
+            BorderColor Brown
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        box {
+            BackgroundColor WhiteSmoke
+            BorderColor SteelBlue
+            Font {
+                Color Black
+                Style plain 
+                Size 16
+            }
+        }
+        Arrow {
+            Color SteelBlue
+            Font {
+                Color DarkGray
+                Style italic 
+                Size 12
+            }
+        }
+    }
+}

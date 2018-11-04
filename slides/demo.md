@@ -226,6 +226,8 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Flow - Notification service
 
 <img src="./app.png" style="width:600px" />
@@ -237,6 +239,8 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Let's write some code
 
 ---
@@ -245,15 +249,21 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+# What's missing?
+
 <div style="text-align:left; font-size:60px; margin:0 20%">
-<span style="font-weight:600">☐ Logging </span> 
-<div style="color:#333333">
-☒ ???????  
-☒ ???????????  
-☒ ???????????
+- Visibility  
+- Security  
+- Resiliency  
 </div>
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Logging
 
@@ -262,6 +272,9 @@ Monoliths ----→ Lots of Microservices
 * Let's get a library + a provider
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
@@ -273,7 +286,10 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
-## Resiliency
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+## Error policies
 
 * The network can fail
 * We want to retry failed requests
@@ -281,15 +297,21 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
-☑ Resiliency  
+☑ Error policies  
 <span style="font-weight:600">☐ Authentication</span>
 <div style="color:#333333">
 ☐ ???????????
 </div>
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Authentication
 
@@ -298,18 +320,21 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
-
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 <!-- Add business monitoring -->
 <!-- Add metrics -->
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
-☑ Resiliency  
+☑ Error policies  
 ☑ Authentication  
 <span style="font-weight:600">☐ Monitoring<span>
 </div>
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Monitoring
 
@@ -318,12 +343,19 @@ Monoliths ----→ Lots of Microservices
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
-☑ Resiliency  
+☑ Error policies  
 ☑ Authentication  
 ☑ Monitoring
 </div>
+
+---
+
+# Demo
 
 ---
 
@@ -429,8 +461,8 @@ position:absolute;
 ---
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
- <div style="font-size:1.5em;color:#696969">
- Which of these concerns cam be solved at <span style="color:#00aeef;font-weight:bold" > environment level </span> ?
+ <div style="n font-size:1.5em;color:#696969">
+ Which of these concerns can be solved at <span style="color:#00aeef;font-weight:bold" > environment level </span> ?
  </div>
 
 ---
@@ -480,9 +512,14 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 # Logging Revisited
 
 ---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Logging
 
@@ -491,12 +528,16 @@ position:absolute;
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## FluentD
 
 * Run on every node (Daemonset)
 * Declarative configuration to define log pipelines
 
 ---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Logging - extra benefits
 
@@ -507,20 +548,28 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 <div style="text-align:left; font-size:60px; margin:0 20%">
 <s>☑ Logging  </s>    
-☑ Resiliency  
+☑ Error policies  
 ☑ Authentication  
 ☑ Monitoring
 </div>
 
 ---
 
-# Resiliency Revisited
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+# Error policies Revisited
 
 ---
 
-## Resiliency
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+## Error policies
 
 * Service-mesh, THE buzzword for 2018
 * Istio
@@ -528,17 +577,25 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Service mesh - Istio 
 
 <img src="./service-mesh.png" style="width:100%" />
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Service mesh - Resiliency 
 
 * Configurable failure handling
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Service mesh extra benefits
 
@@ -549,18 +606,27 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 <div style="text-align:left; font-size:60px; margin:0 20%">
 <s>☑ Logging</s>  
-<s>☑ Resiliency</s>  
+<s>☑ Error recovery</s>  
 ☑ Authentication  
 ☑ Monitoring
 </div>
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 # Authentication Revisited
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Authentication
 
@@ -569,11 +635,16 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Authentication - Airbag
 
 <img src="./airbag.png" style="width:100%" />
 
 ---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Authentication - Airbag
 
@@ -582,6 +653,9 @@ position:absolute;
 * Probably be superseded by <br/> Istio's origin authentication
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 <div style="text-align:left; font-size:1.25em; margin:0 20%">
 <s>☑ Logging</s>   
@@ -592,9 +666,15 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 # Monitoring
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Monitoring
 
@@ -611,6 +691,9 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ##  A new requirement
 
 * Sending lots of messages
@@ -618,17 +701,26 @@ position:absolute;
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Previous solutions
 
 <img src="./dqd-intro.png" style="width:100%" />
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## Yet Another sidecar 
 
 <img src="./dqd.png" style="width:100%" />
 
 ---
+
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Dequeue Daemon Sidecar 
 
@@ -639,16 +731,19 @@ position:absolute;
 
 ---
 
+
 ## DQD - Demo
 
 ---
 
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 ## DQD - benefits
 
 * Scaled with service
-* Trusted
-* Agnostic 
 * Testing
+* Agnostic 
 
 ---
 
@@ -689,39 +784,13 @@ Supporting services - analytics, feature flags, etc…
 ---
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
-## What about **serverless**?
-
----
-
-<!-- .slide: data-background="#ffffff" data-state="soluto" -->
-
-### Serverless
-
-* Allows you to focus only on functions and nothing else…
-* Sort-of language agnostic
-* Event-driven model with separation between triggers/sources/sinks managed by declarative configuration
-
----
-
-<!-- .slide: data-background="#ffffff" data-state="soluto" -->
-
-### Serverless - drawbacks
-
-* Works mostly for stateless workload
-* Popular solutions comes with serious vendor lock-in across all stack
-* Many promising k8s implementations
-* Many efforts to make it better/stronger/faster and standard
-* Might be the best solution in the future
-
----
-
-<!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ### How did it **affect** us?
 * Still on-going process
 * Cleaner, leaner services
 Testing got easier
 * Faster adoptions of new languages and tools
+* No more Soluto.Logging/Monitoring/Auth/... packages
 
 ---
 

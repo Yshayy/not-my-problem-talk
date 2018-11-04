@@ -1,5 +1,5 @@
 @startuml
-skinparam monochrome reverse
+'Autoinclude
 
 node users
 node notifications

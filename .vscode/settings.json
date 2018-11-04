@@ -14,5 +14,9 @@
   "editor.fontWeight": "600",
   "editor.fontSize": 14,
   "terminal.integrated.fontWeight": "800",
-  "terminal.integrated.fontSize": 14
+  "terminal.integrated.fontSize": 14,
+  "workbench.editor.openPositioning": "left",
+  "plantuml.includes": [
+    "slides/plantuml/includes"
+  ]
 }

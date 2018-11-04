@@ -1,15 +1,5 @@
 @startuml
-skinparam monochrome reverse
-skinparam frame {
-    backgroundColor Yellow
-}
-skinparam cloud {
-    backgroundColor Yellow
-}
-
-skinparam component{
-    backgroundColor Orange
-}
+'Autoinclude
 
 frame "          Notifcations Pod     " {
     node notifications
