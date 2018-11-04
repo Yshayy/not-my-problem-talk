@@ -17,7 +17,10 @@ app.use(loggingMiddleware);
 async function fetchUserDetails(userId){
     const res = await polly()
     .retry(4)
-    .executeForPromise(() =>  got(`http://users/api/users/${userId}`, {json:true}));
+    .executeForPromise(() =>  
+    got(
+    `http://users/api/users/${userId}`,
+    {json:true}));
     
     return res.body;
 }
@@ -25,7 +28,10 @@ async function fetchUserDetails(userId){
 async function sendMessage(userId, message){
     await polly()
     .retry(4)
-    .executeForPromise(()=> got.post(`http://messages/api/users/${userId}/messages`, {body: {message}, json:true}));
+    .executeForPromise(()=> 
+    got.post(
+    `http://messages/api/users/${userId}/messages`, 
+    {body: {message}, json:true}));
 }
 
 function formatMessage(messageType, context){
