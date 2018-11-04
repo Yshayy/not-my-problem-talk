@@ -509,6 +509,8 @@ position:absolute;
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 # Let's get rid of stuff
 
 ---
@@ -516,7 +518,7 @@ position:absolute;
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-# Logging Revisited
+## Logging Revisited
 
 ---
 
@@ -563,7 +565,7 @@ position:absolute;
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-# Error policies Revisited
+## Error policies Revisited
 
 ---
 
@@ -622,7 +624,7 @@ position:absolute;
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-# Authentication Revisited
+## Authentication Revisited
 
 ---
 
@@ -670,7 +672,7 @@ position:absolute;
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-# Monitoring
+## Monitoring Revisited
 
 ---
 
@@ -693,15 +695,41 @@ position:absolute;
 ---
 
 
-<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+<!-- .slide: data-background="#ffffff" data-state="soluto"  data-transition="fade" -->
 
 ##  A new requirement
 
-* Sending lots of messages
-* Batch process 
+<div style="text-align:left" >
+
+<ul>
+<li>It's black friday!</li>
+<li>We want to send lots of messages</li>
+</ul>
+
+</div>
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" data-transition="fade" -->
+
+## A new requirement
+
+<div style="text-align:left" >
+
+<ul>
+<li>It's a batch process</li>
+<li>Let's use a queue</li>
+</ul>
+
+</div>
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### How de we process queue items?
+
+---
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
