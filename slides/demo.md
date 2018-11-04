@@ -182,7 +182,7 @@ Monoliths ----→ Lots of Microservices
 
 * Based in Tel Aviv, acquired by Asurion at 2013
 * Next generation of tech support
-* 150M worldwide users
+* 150M users worldwide
 * We love open-source
 
 
@@ -220,8 +220,8 @@ Monoliths ----→ Lots of Microservices
 
 ## Spec - Notifications service
 
-* We want to send notifications for users
-* Notifications will be based on templates
+* We want to send notifications to users
+* Notifications will be based in templates
 * Notifications will be personalized
 
 ---
@@ -252,9 +252,9 @@ Monoliths ----→ Lots of Microservices
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-# What's missing?
+## What's missing?
 
-<div style="text-align:left; font-size:60px; margin:0 20%">
+<div style="text-align:left; font-size:1.2em; margin:0 40px">
 - Visibility  
 - Security  
 - Resiliency  
@@ -278,10 +278,10 @@ Monoliths ----→ Lots of Microservices
 
 <div style="text-align:left; font-size:60px; margin:0 20%">
 ☑ Logging  
-<span style="font-weight:600">☐ Resiliency </span> 
+<span style="font-weight:600">☐ Error policies </span> 
 <div style="color:#333333">
-☒ ???????  
-☒ ???????????
+☐ Authentication  
+☐ Monitoring
 </div>
 
 ---
@@ -305,7 +305,7 @@ Monoliths ----→ Lots of Microservices
 ☑ Error policies  
 <span style="font-weight:600">☐ Authentication</span>
 <div style="color:#333333">
-☐ ???????????
+☐ Monitoring
 </div>
 
 ---
@@ -523,7 +523,7 @@ position:absolute;
 
 ## Logging
 
-* Use log collector
+* Use log forwarder
 * Scrape the logs from Docker
 
 ---
@@ -786,11 +786,11 @@ Supporting services - analytics, feature flags, etc…
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ### How did it **affect** us?
-* Still on-going process
 * Cleaner, leaner services
-Testing got easier
+* Testing got easier
 * Faster adoptions of new languages and tools
 * No more Soluto.Logging/Monitoring/Auth/... packages
+* We're still learning...
 
 ---
 
