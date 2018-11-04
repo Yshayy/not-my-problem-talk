@@ -815,9 +815,6 @@ Testing got easier
 
 ---
 
-
----
-
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 ## Questions
