@@ -10,6 +10,7 @@
 <div>Yshay Yaacobi</div>
 @yshayy
 </div>
+<div>https://git.io/fxh57</div>
 
 ---
 
@@ -44,20 +45,20 @@
 
 <div position="relative">
 <div style="position:absolute; top:120px; left:300px">
-<span style="position:absolute;bottom:40px;left:30px; color:#696969" >Monolith #1 </span>
-<img style="border:none; box-shadow:none" src="./monolith.png" >
+<span style="position:absolute;bottom:40px;left:30px; color:#696969;font-size:0.9em" >Monolith #1 </span>
+<img style="border:none; width:300px; box-shadow:none" src="./monolith.png" >
 </div>
 
 <div position="relative">
-<div style="position:absolute; top:440px; left:80px">
-<span style="position:absolute;bottom:40px;left:30px; color:#696969" >Monolith #2 </span>
-<img style="border:none; box-shadow:none" src="./monolith.png" >
+<div style="position:absolute; top:390px; left:100px">
+<span style="position:absolute;bottom:40px;left:30px; color:#696969;font-size:0.9em" >Monolith #2 </span>
+<img style="width:300px; border:none; box-shadow:none" src="./monolith.png" >
 </div>
 
 <div position="relative">
-<div style="position:absolute; top:440px; right:80px">
-<span style="position:absolute;bottom:40px;left:30px; color:#696969" >Monolith #3 </span>
-<img style="border:none; box-shadow:none" src="./monolith.png" >
+<div style="position:absolute; top:390px; right:160px">
+<span style="position:absolute;bottom:40px;left:30px; color:#696969;font-size:0.9em" >Monolith #3 </span>
+<img style="width:300px; border:none; box-shadow:none" src="./monolith.png" >
 </div>
 
 </div>
@@ -71,8 +72,8 @@
 
 <div position="relative">
 <div style="position:absolute; top:120px; left:300px">
-<span style="position:absolute;top:80px;left:30px; font-size:0.7em; color:#696969" >Application code</span>
-<img style="border:none; box-shadow:none" src="./monolith.png" >
+<span style="position:absolute;top:80px;left:30px; font-size:0.6em; color:#696969" >Application code</span>
+<img style="width:300px;border:none; box-shadow:none" src="./monolith.png" >
 <div style="text-align:left;position:absolute; bottom:-15px; left:-15px; ">
 <img style=" margin:0; border:none; box-shadow:none;width:80px" src="./monolith-code.png" />
 <div style="color:#696969;font-size:0.7em;margin-top:-15px">Infra code </div>
@@ -80,9 +81,9 @@
 </div>
 
 <div position="relative">
-<div style="position:absolute; top:440px; left:80px">
-<span style="position:absolute;top:80px;left:30px; font-size:0.7em; color:#696969" >Application code</span>
-<img style="border:none; box-shadow:none" src="./monolith.png" >
+<div style="position:absolute; top:390px; left:100px">
+<span style="position:absolute;top:80px;left:30px; font-size:0.6em; color:#696969" >Application code</span>
+<img style="width:300px;border:none; box-shadow:none" src="./monolith.png" >
 <div style="text-align:left;position:absolute; bottom:-15px; left:-15px; ">
 <img style=" margin:0; border:none; box-shadow:none;width:80px" src="./monolith-code.png" />
 <div style="color:#696969;font-size:0.7em;margin-top:-15px">Infra code </div>
@@ -90,9 +91,9 @@
 </div>
 
 <div position="relative">
-<div style="position:absolute; top:440px; right:80px">
-<span style="position:absolute;top:80px;left:30px; font-size:0.7em; color:#696969" >Application code</span>
-<img style="border:none; box-shadow:none" src="./monolith.png" >
+<div style="position:absolute; top:390px; right:160px">
+<span style="position:absolute;top:80px;left:30px; font-size:0.6em; color:#696969" >Application code</span>
+<img style="width:300px;border:none; box-shadow:none" src="./monolith.png" >
 <div style="text-align:left;position:absolute; bottom:-15px; left:-15px; ">
 <img style=" margin:0; border:none; box-shadow:none;width:80px" src="./monolith-code.png" />
 <div style="color:#696969;font-size:0.7em;margin-top:-15px">Infra code </div>
