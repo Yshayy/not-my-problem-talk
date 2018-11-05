@@ -16,7 +16,7 @@
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
  <div style="font-size:1.5em;color:#696969">
- As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>.
+ As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>
  </div>
 
 ---
@@ -137,7 +137,7 @@ Monoliths ----→ Lots of Microservices
 </div>
 </div>
 
-<div style="color:#696969">Infra-code and business logic code live together with every microservice</div>
+<div style="color:#696969">Infra-code and business logic code live together with every Microservice</div>
 
 
 
@@ -154,7 +154,7 @@ Monoliths ----→ Lots of Microservices
 </div>
 </div>
 
-<div style="color:#696969;font-weight:bold">Can we write only our business code and let our hosting environment take care of the rest?</div>
+<div style="color:#696969;font-weight:bold">How can we write only our business code and let our hosting environment take care of the rest?</div>
 
 ---
 
@@ -163,7 +163,7 @@ Monoliths ----→ Lots of Microservices
 
 ## About me
 <div style="float:right">
-<img style=" width:300px; border:6px #00aaef solid; border-radius:150px;  box-shadow:none; " src="./me.png" />
+<img style=" width:200px;   box-shadow:none; " src="./soluton.png" />
 <div>Yshay Yaacobi</div>
 <div>@yshayy</div>
 </div>
@@ -202,6 +202,7 @@ Monoliths ----→ Lots of Microservices
 * ~5 services -> 100+ services
 * Cultural change, new aspects of ownership
 * CI/CD - Better tooling automation
+* Self-service
 
 ---
 
@@ -362,13 +363,13 @@ Monoliths ----→ Lots of Microservices
 
 <!-- .slide: data-background="#ffffff" data-transition="fade" data-state="soluto" -->
 
-### What just happend here?
+### What just happened here?
 
 <div style="position: relative">
 <img style="box-shadow:none; border:none; width:400px" src="./deps.png" />
 
 <div class="fragment fade-in" style="
-background-color:orange;
+background-color:#696969;
 color:white;
 font-weight:bold;
 width:800px;
@@ -392,7 +393,7 @@ We wanted a small micro service and got a bunch of code and dependencies
 <img style="box-shadow:none; border:none; width:400px" src="./deps.png" />
 
 <div  style="
-background-color:orange;
+background-color:#696969;
 color:white;
 font-weight:bold;
 width:800px;
@@ -456,7 +457,7 @@ position:absolute;
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
  <div style="font-size:1.5em;color:#696969">
- As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>.
+ As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>
  </div>
 
 ---
@@ -526,6 +527,7 @@ position:absolute;
 
 ## Logging
 
+* *Treat Logs as event streams*
 * Use log forwarder
 * Scrape the logs from Docker
 
@@ -685,12 +687,18 @@ position:absolute;
 
 ---
 
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
 <div style="text-align:left; font-size:1.3em; margin:0 20%">
 <s>☑ Logging</s>  
 <s>☑ Resiliency</s>  
 <s>☑ Authentication</s>  
 <s>☑ Monitoring</s>
 </div>
+
+---
+
+# DEMO
 
 ---
 
@@ -702,8 +710,8 @@ position:absolute;
 <div style="text-align:left" >
 
 <ul>
-<li>It's black friday!</li>
-<li>We want to send lots of messages</li>
+<li>It's **black friday!**</li>
+<li>We want to send **lots** of messages</li>
 </ul>
 
 </div>
@@ -802,13 +810,16 @@ position:absolute;
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-### How far can we go?
+### Not all languages are born equal
 
-* **Gateways** - routing, caching, validation, rate limiting, policies
-* **Configuration** - secrets, cloud resource binding
-* **Tools** - remote debugging/profiling
-Supporting services - analytics, feature flags, etc…
-* **Probably more**… (https://landscape.cncf.io/)
+<div style="position:relative;">
+<img style="border:none;box-shadow:none" src="./matrix.png" />
+<div class="fragment zoom-in" style="position:absolute;
+left:0; right:0;top:-300px;
+color:red;line-height:1200px; font-size:1200px">X</div>
+</div>
+
+
 
 ---
 
@@ -819,13 +830,27 @@ Supporting services - analytics, feature flags, etc…
 * Testing got easier
 * Faster adoptions of new languages and tools
 * No more Soluto.Logging/Monitoring/Auth/... packages
+* Rapid adoption of k8s by teams
 * We're still learning...
 
 ---
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
+
+### How far can we go?
+
+* **Gateways** - routing, caching, validation, rate limiting, policies
+* **Configuration** - secrets, cloud resource binding
+* **Tools** - remote debugging/profiling
+Supporting services - analytics, feature flags, etc…
+* **Platform** - FAAS/Serverless/Workflows 
+* **Probably more**… (https://landscape.cncf.io/)
+
+---
+
+<!-- .slide: data-background="#ffffff" data-state="soluto" -->
  <div style="font-size:1.5em;color:#696969">
- As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>.
+ As a developer, I want to <span style="color:#00aeef;font-weight:bold" > focus on building features</span> that deliver  <span style="color:#00aeef;font-weight:bold" >business value </span>
  </div>
 
 ---
@@ -839,14 +864,14 @@ Supporting services - analytics, feature flags, etc…
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-## Thank you
+## Thank you.
 
 
 ---
 
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
-## Questions
+## Questions?
 
 
 ---
@@ -855,7 +880,7 @@ Supporting services - analytics, feature flags, etc…
 <!-- .slide: data-background="#ffffff" data-state="soluto" -->
 
 
-### Additonal resources - tools
+### Additional resources - tools
 
 * AirBag - github.com/soluto/airbag 
 * DQD - github.com/soluto/dqd

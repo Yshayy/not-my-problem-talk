@@ -6,7 +6,7 @@ var queueService = azure.createQueueServiceWithSas(url, process.env.SAS_TOKEN);
 queueService.messageEncoder = new azure.QueueMessageEncoder.TextBase64QueueMessageEncoder();
 for (let i=0; i<100; i++){
 queueService.createMessage('test', JSON.stringify({
-    "messageType":"welcome",
+    "messageType":"smart-tv",
     "user": "alice"
 }) , function(error, b) {
   if (error) {
